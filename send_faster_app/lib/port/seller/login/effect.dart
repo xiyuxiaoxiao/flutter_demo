@@ -10,6 +10,7 @@ Effect<LoginState> buildEffect() {
 }
 
 void _onLogin(Action action, Context<LoginState> ctx) {
+  print("点击登录");
   Future.delayed(Duration(seconds: 2),(){
     print("登录回调");
   });

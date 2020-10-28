@@ -15,11 +15,14 @@ Reducer<LoginState> buildReducer() {
 
 LoginState _onCleanUsername(LoginState state, Action action) {
   final LoginState newState = state.clone();
+  newState.usernameController.clear();
   return newState;
 }
 
 LoginState _onCleanPassword(LoginState state, Action action) {
   final LoginState newState = state.clone();
+  newState.passwordController.clear();
+  print("清除密码");
   return newState;
 }
 
