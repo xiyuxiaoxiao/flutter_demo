@@ -10,7 +10,7 @@ class _RootPageWidgetState extends State<RootPageWidget> {
   var _datas = [
     RootListItem(title: "登录", route_name: "login_page"),
     RootListItem(title: "tababr", route_name: "tabbar_page"),
-    RootListItem(title: "fish-redux 框架", route_name: ""),
+    RootListItem(title: "fish-redux 框架", route_name: "redux_example_page"),
   ];
 
   void cellTap(index) {
@@ -30,15 +30,13 @@ class _RootPageWidgetState extends State<RootPageWidget> {
           // in the middle of the parent.
             child: ListView.builder(
                 itemCount: _datas.length,
-//          itemExtent: 50,
                 itemBuilder: (BuildContext context,int index){
-
                   return GestureDetector(
+                    behavior:HitTestBehavior.opaque,
                     child: Container(
                       child: Column(
                         children: [
                           Container(
-                            width: double.infinity,
                             margin: EdgeInsets.all(20),
                             child: Text(_datas[index].title),
                           ),

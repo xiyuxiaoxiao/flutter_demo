@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:send_fast_app/pages/login/login.dart';
 import 'package:send_fast_app/pages/root/root_page.dart';
+import 'package:send_fast_app/pages/system/routes.dart';
 import 'package:send_fast_app/pages/tabbar/tabbar.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => RootPageWidget(),
         "login_page": (context) => LoginPageWidget(),
         "tabbar_page": (context) => TabbarPageWidget(),
+        "redux_example_page": (context) => htRoutes.buildPage("redux_example", null),
       },
     );
   }
