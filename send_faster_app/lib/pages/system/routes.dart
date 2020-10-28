@@ -1,5 +1,3 @@
-
-
 import 'package:fish_redux/fish_redux.dart';
 import 'package:send_faster_app/pages/redux/example/page.dart';
 
