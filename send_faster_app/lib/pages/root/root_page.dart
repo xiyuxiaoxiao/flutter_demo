@@ -11,6 +11,7 @@ class _RootPageWidgetState extends State<RootPageWidget> {
     RootListItem(title: "登录", route_name: "login_page"),
     RootListItem(title: "tababr", route_name: "tabbar_page"),
     RootListItem(title: "fish-redux 框架", route_name: "redux_example_page"),
+    RootListItem(title: "seller包下的登录", route_name: "seller_login"),
   ];
 
   void cellTap(index) {
