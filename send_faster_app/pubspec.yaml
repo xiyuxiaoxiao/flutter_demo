@@ -31,6 +31,7 @@ dependencies:
   shared_preferences: ^0.5.12+2
   fish_redux: ^0.3.4
   oktoast: ^2.3.2
+  dio: ^3.0.10
 
 
 dev_dependencies:

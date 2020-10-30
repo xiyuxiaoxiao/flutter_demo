@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:send_faster_app/unit/net/zs_http.dart';
 
 class LoginPageWidget extends StatefulWidget {
   @override
@@ -10,10 +11,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("登录页面"),
+        title: Text("请求"),
       ),
       body: Center(
-        child: Text("登录页面"),
+        child: GestureDetector(
+          onTap: (){
+            ZSHttpAPI.test();
+          },
+          child: Text("测试 请求"),
+        ),
       ),
     );
   }
