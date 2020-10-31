@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:send_faster_app/pages/login/login.dart';
@@ -26,10 +27,39 @@ class MyApp extends StatelessWidget {
             "/": (context) => RootPageWidget(),
             "login_page": (context) => LoginPageWidget(),
             "tabbar_page": (context) => TabbarPageWidget(),
-            "redux_example_page": (context) => htRoutes.buildPage("redux_example", null),
-            "seller_login": (context) => sellerRoutes.htRoutes.buildPage("login", null),
+            "redux_example_page": (context) => htRoutes.buildPage("root_redux_example", null),
           },
+          onGenerateRoute: (RouteSettings settings) {
+
+            if (settings.name.startsWith("seller_")){
+              return CupertinoPageRoute<Object>(builder: (BuildContext context) {
+                return sellerRoutes.htRoutes.buildPage(settings.name, settings.arguments);
+              });
+            }
+
+            if (settings.name.startsWith("root_")){
+              return CupertinoPageRoute<Object>(builder: (BuildContext context) {
+                return htRoutes.buildPage(settings.name, settings.arguments);
+              });
+            }
+
+          return MaterialPageRoute(
+            builder: (context){
+              return Scaffold(
+                appBar: AppBar(
+                ),
+                body: Center(
+                  child: Text("暂未发现当前页面"),
+                ),
+              );
+            }
+          );
+
+          }
         )
     );
   }
+}
+
+class LoadingPopListener {
 }
