@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Map<String, WidgetBuilder> main_routes = {
-//      "/": (context) => sellerRoutes.htRoutes.buildPage(sellerRoutes.Pages.login, null),
-      "/": (context) => RootPageWidget(),
+      "/": (context) => sellerRoutes.htRoutes.buildPage(sellerRoutes.Pages.login, null),
+//      "/": (context) => RootPageWidget(),
     };
     main_routes.addAll(sellerRoutes.routesMain);
 
