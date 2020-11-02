@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:send_faster_app/port/seller/model/user/user_info.dart';
 import 'package:send_faster_app/port/seller/system/routes.dart';
 
 class RootPageWidget extends StatefulWidget {
@@ -16,7 +17,8 @@ class _RootPageWidgetState extends State<RootPageWidget> {
   ];
 
   void cellTap(index) {
-    Navigator.pushNamed(context, _datas[index].route_name);
+    UserInfo().save();
+//    Navigator.pushNamed(context, _datas[index].route_name);
   }
 
   @override
