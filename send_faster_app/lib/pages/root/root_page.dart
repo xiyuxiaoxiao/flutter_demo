@@ -8,13 +8,11 @@ class RootPageWidget extends StatefulWidget {
 
 class _RootPageWidgetState extends State<RootPageWidget> {
 
+  // 需要在
   var _datas = [
-    RootListItem(title: "请求", route_name: "login_page"),
-    RootListItem(title: "fish-redux 框架", route_name: "redux_example_page"),
-    RootListItem(title: "fish-redux 框架 路由拦截处理", route_name: "root_redux_example"),
+    RootListItem(title: "fish_redux", route_name: "root_redux_example"),
     RootListItem(title: "seller包下的登录", route_name: Pages.login),
     RootListItem(title: "seller包下的tabbar", route_name: Pages.tabbar),
-
   ];
 
   void cellTap(index) {

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:send_faster_app/pages/login/login.dart';
 import 'package:send_faster_app/pages/root/root_page.dart';
 import 'package:send_faster_app/pages/system/routes.dart';
 // seller中的包名 与上面的冲突
@@ -18,9 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Map<String, WidgetBuilder> main_routes = {
-      "/": (context) => RootPageWidget(),
-      "login_page": (context) => LoginPageWidget(),
-      "redux_example_page": (context) => htRoutes.buildPage("root_redux_example", null),
+      "/": (context) => sellerRoutes.htRoutes.buildPage(sellerRoutes.Pages.login, null),
+//      "/": (context) => RootPageWidget(),
     };
     main_routes.addAll(sellerRoutes.routesMain);
 
