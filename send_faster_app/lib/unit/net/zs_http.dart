@@ -3,6 +3,11 @@ import 'package:dio/dio.dart';
 const BASE_URL = "https://www.senfFaster.api";
 
 class ZSHttp {
+  static const keyUrl = "url";
+  static const keyType = "type";
+  static const keyTypeGet = "GET";
+  static const keyTypePOST = "POST";
+  static const keyParams = "params";
 
   factory ZSHttp() => _getInstance();
   static ZSHttp _instance;
@@ -29,22 +34,28 @@ class ZSHttp {
     final _data = <String, dynamic>{};
 
     Map<String, dynamic> queryParameters = {};
-    if (opts["params"] != null) {
-      queryParameters.addAll(opts["params"]);
+    if (opts[keyParams] != null) {
+      queryParameters.addAll(opts[keyParams]);
     }
     try{
-      Response res = await _dio.request(opts["url"],
+      Response res = await _dio.request(opts[keyUrl],
         queryParameters: queryParameters,
         options: RequestOptions(
-          method: opts["type"],
+          method: opts[keyType],
           queryParameters: queryParameters,
         ),
         data: _data,
       );
 
       if (res.statusCode == 200) {
+        return res.data;
       }
       // 对于失败的是否 需要返回 如果不需要 则可以不返回失败的数据
+
+      return Response(
+        statusCode: res.data.code,
+        statusMessage: res.data.messgage,
+      );
 
       return res;
     } on DioError catch(e) {
@@ -64,9 +75,9 @@ class ZSHttpAPI {
   static void test() async{
 
     Response res = await ZSHttp.requestAPI({
-      "url": "https://www.baidu.com/",
-      "type": "GET",
-      "params": {
+      ZSHttp.keyUrl: "https://www.baidu.com/",
+      ZSHttp.keyType: ZSHttp.keyTypeGet,
+      ZSHttp.keyParams: {
         "name": "张三丰",
       }
     });
@@ -76,7 +87,8 @@ class ZSHttpAPI {
     print(res.data);
     print(res.request.uri);
 
-//    拦截器没有任何意义 因为请求本来就是封装好的 可以在之前处理 错误之后还是照样会报错 无法继续执行后面的代码
+//    拦截器没有任何意义 因为请求本来就是封装好的 可以在之前处理
+//    请求错误之后还是照样会报错 无法继续执行后面的代码
 //    dio.interceptors.add(InterceptorsWrapper(
 //      onRequest: (RequestOptions options) async{
 //        print("------请求---- ");

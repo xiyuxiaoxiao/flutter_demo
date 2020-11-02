@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:send_faster_app/port/seller/system/routes.dart';
 
 class RootPageWidget extends StatefulWidget {
   @override
@@ -9,11 +10,10 @@ class _RootPageWidgetState extends State<RootPageWidget> {
 
   var _datas = [
     RootListItem(title: "请求", route_name: "login_page"),
-    RootListItem(title: "tababr", route_name: "tabbar_page"),
     RootListItem(title: "fish-redux 框架", route_name: "redux_example_page"),
     RootListItem(title: "fish-redux 框架 路由拦截处理", route_name: "root_redux_example"),
-    RootListItem(title: "seller包下的登录", route_name: "seller_login"),
-    RootListItem(title: "seller包下的tabbar", route_name: "seller_tabbar"),
+    RootListItem(title: "seller包下的登录", route_name: Pages.login),
+    RootListItem(title: "seller包下的tabbar", route_name: Pages.tabbar),
 
   ];
 

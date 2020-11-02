@@ -5,18 +5,18 @@ import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
 
-class SellerTabbarPage extends Page<SellerTabbarState, Map<String, dynamic>> {
-  SellerTabbarPage()
+class StockUpSmallLabelPage extends Page<StockUpSmallLabelState, Map<String, dynamic>> {
+  StockUpSmallLabelPage()
       : super(
             initState: initState,
             effect: buildEffect(),
             reducer: buildReducer(),
             view: buildView,
-            dependencies: Dependencies<SellerTabbarState>(
+            dependencies: Dependencies<StockUpSmallLabelState>(
                 adapter: null,
-                slots: <String, Dependent<SellerTabbarState>>{
+                slots: <String, Dependent<StockUpSmallLabelState>>{
                 }),
-            middleware: <Middleware<SellerTabbarState>>[
+            middleware: <Middleware<StockUpSmallLabelState>>[
             ],);
 
 }
